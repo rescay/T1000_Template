@@ -1,0 +1,75 @@
+% !TEX root = master.tex
+
+% Definitions and Commands
+
+\newcommand{\TitelDerArbeit}[1]{\def\DerTitelDerArbeit{#1}\hypersetup{pdftitle={#1}}}
+\newcommand{\AutorDerArbeit}[1]{\def\DerAutorDerArbeit{#1}\hypersetup{pdfauthor={#1}}}
+\newcommand{\Firma}[1]{\def\DerNameDerFirma{#1}}
+\newcommand{\Hochschule}[1]{\def\DieHochschule{#1}}
+\newcommand{\Kurs}[1]{\def\DieKursbezeichnung{#1}}
+\newcommand{\Abteilung}[1]{\def\DerNameDerAbteilung{#1}}
+\newcommand{\Studiengangsleiter}[1]{\def\DerStudiengangsleiter{#1}}
+\newcommand{\WissBetreuer}[1]{\def\DerWissBetreuer{#1}}
+\newcommand{\FirmenBetreuer}[1]{\def\DerFirmenBetreuer{#1}}
+\newcommand{\Bearbeitungszeitraum}[1]{\def\DerBearbeitungszeitraum{#1}}
+\newcommand{\Abgabedatum}[1]{\def\DasAbgabedatum{#1}}
+\newcommand{\Matrikelnummer}[1]{\def\DieMatrikelnummer{#1}}
+\newcommand{\Studienrichtung}[1]{\def\DieStudienrichtung{#1}}
+\newcommand{\ArtDerArbeit}[1]{\def\DieArtDerArbeit{#1}}
+\newcommand{\Bearbeitungszeit}[1]{\def\DieBearbeitungszeit{#1}}
+\newcommand{\Literaturverzeichnis}{Literaturverzeichnis}
+\newcommand{\SignatureAndDate}[1]{
+    \par\noindent\makebox[5.5cm]{\hrulefill}  \hfill\makebox[5.5cm]{\hrulefill}
+    \par\noindent\makebox[5.5cm][l]{Ort, Datum}      \hfill\makebox[5.5cm][l]{#1}
+}
+
+% Shortcuts for often used methods
+
+\newcommand{\NN}{{\mathbb{N}}}
+
+% Renamed commands
+
+
+
+% Listings
+%\renewcommand{\lstlistingname}{Quelltext}
+%\renewcommand{\lstlistlistingname}{Quelltextverzeichnis}
+%\lstset{
+%  numbers=left,
+%  numberstyle=\tiny,
+%  captionpos=b,
+%  basicstyle=\ttfamily\small
+%}
+
+\newcommand{\settingBibFootnoteCite}{
+%\setlength{\bibparsep}{\parskip}
+% Add some space between biblatex entries in the bibliography
+\addbibresource{bibliography.bib}
+% Add file bibliography.bib as biblatex resource
+\DefineBibliographyStrings{ngerman}
+% Change language of bib file to german
+}
+
+\newcommand{\setTitlePage}{
+  \input{titlepage}
+  \pagenumbering{Roman}                
+  % Setting page numbering to roman for title etc.
+  \normalfont
+}
+
+\newcommand{\initializeText}{
+  \cleardoublepage
+  \ihead{\chaptername~\thechapter} 
+  \pagenumbering{arabic}
+}
+
+\newcommand{\initializeBibliography}{
+  \printbibliography[title=\Literaturverzeichnis]
+  \cleardoublepage 
+  % Ensuring there's enough space so that the new page is right-handed
+}
+
+\newcommand{\initializeAppendix}{
+  \appendix 
+  \cftaddtitleline{toc}{chapter}{Anhang}{}
+}
